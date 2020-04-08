@@ -4,11 +4,13 @@ services:
     db_postgres:
         image: postgres:9.6
         volumes:
-            - postgres_data:/var/lib/postgresql/postgres_data
+            - postgres_data:/var/lib/postgresql
+        
         environment:
             POSTGRES_USER: postgres
             POSTGRES_PASSWORD: postgres
             POSTGRES_DB: db_postgres
+        container_name: postgres
 
     django_app:
         build: .
@@ -17,6 +19,7 @@ services:
             - .:/code
         depends_on:
             - db_postgres
+        container_name: app
 
     nginx:
         image: nginx:1.13
@@ -27,6 +30,7 @@ services:
             - static:/code/static
         depends_on:
             - django_app
+        container_name: nginx
 
 volumes:
     .:
