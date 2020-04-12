@@ -10,7 +10,7 @@ RUN apk --no-cache add build-base \
 
 
 RUN pip install -r requirements.txt
-CMD ["gunicorn", "-c", "config/gunicorn/conf.py", "--bind", ":5000", "--chdir", "misitio", "misitio.wsgi:application"]
+CMD ["gunicorn", "-c", "config/gunicorn/conf.py", "--bind", ":80", "--chdir", "misitio", "misitio.wsgi:application"]
 
 
 
