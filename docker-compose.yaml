@@ -2,16 +2,17 @@ version: "3"
 
 services: 
     db_postgres:
-        image: postgres:9.6
+        image: postgres:9.6-alpine
+        container_name: postgres
         volumes:
             - postgres_data:/var/lib/postgresql
-        
+        ports:
+            - 5432:5432            
         environment:
             POSTGRES_USER: postgres
             POSTGRES_PASSWORD: postgres
             POSTGRES_DB: db_postgres
-        container_name: postgres
-
+            
     django_app:
         build: .
         volumes:
@@ -24,7 +25,7 @@ services:
     nginx:
         image: nginx:1.13
         ports:
-            - 5000:80
+            - 80:80
         volumes:
             - ./config/nginx/conf.d:/etc/nginx/conf.d
             - static:/code/static
