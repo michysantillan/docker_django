@@ -2,10 +2,10 @@ version: "3"
 
 services: 
     db_postgres:
-        image: postgres:9.6-alpine
-        container_name: postgres
+        image: mdillon/postgis:9.6
+        container_name: postgis
         volumes:
-            - postgres_data:/var/lib/postgresql
+            - postgres_data:/var/lib/postgresql/data
         ports:
             - 5432:5432            
         environment:
@@ -23,7 +23,7 @@ services:
         container_name: app
 
     nginx:
-        image: nginx:1.13
+        image: nginx:1.16-alpine
         ports:
             - 80:80
         volumes:

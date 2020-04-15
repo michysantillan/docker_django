@@ -25,7 +25,7 @@ SECRET_KEY = '0+h5=ued_en6g63)6h)qv^1e6cu)56nyy^x=tm2v6+i$^ke-z-'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['18.236.139.222']
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -77,11 +77,11 @@ WSGI_APPLICATION = 'misitio.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'postgres',
+        'NAME': 'db_postgres',
         'USER': 'postgres',
         'PASSWORD': 'postgres',
         'HOST': 'db_postgres',
-        'PORT': 5432,
+        'PORT': '5432',
     }
 }
 
@@ -108,7 +108,7 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/2.2/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'es-es'
 
 TIME_ZONE = 'UTC'
 
